@@ -6,9 +6,9 @@ var orm = {
         connection.query(
             `SELECT * FROM ??`,
             [table],
-            (err, res) => {
+            (err, result) => {
                 (err) => { throw err }
-                cb(res);
+                cb(result);
             }
         )
     },
@@ -22,12 +22,21 @@ var orm = {
             }
         );
     },
-    updateOne: (table, id, cb) => {
-        connection.query(`UPDATE ?? SET devoured = TRUE WHERE id = ?`,
-            [table, id],
-            (err, res) => {
+    updateOne: (table, id, state, cb) => {
+        connection.query(`UPDATE ?? SET devoured = ? WHERE ?`,
+            [table, state, id],
+            (err, result) => {
                 (err) => { throw err }
-                cb(res);
+                cb(result);
+            }
+        )
+    },
+    deleteOne: (table, id, cb) => {
+        connection.query(`DELETE FROM ?? WHERE ?`,
+            [table, id],
+            (err, result) => {
+                (err) => { throw err }
+                cb(result);
             }
         )
     }
