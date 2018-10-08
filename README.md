@@ -1,4 +1,5 @@
- This is a handlebars application that uses MYSQL, Heroku, JawsDB and node.js to consume burgers. The user can choose to devour burgers, add burgers and delete burgers. 
+# Eat-Da-Burger
+This is a handlebars application that uses MYSQL, Heroku, JawsDB and node.js to consume burgers. The user can choose to devour burgers, add burgers and delete burgers. 
 
 ## Main Page
 Type in a new burger and click the button to add.
