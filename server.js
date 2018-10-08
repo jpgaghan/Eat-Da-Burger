@@ -1,8 +1,14 @@
 var express = require("express");
-
-var PORT = process.env.PORT || 3000;
+var timeout = require("connect-timeout");
 
 var app = express();
+
+app.use(timeout(15000));
+app.use(haltOnTimedout);
+
+function haltOnTimedout(req, res, next) {
+    if (!req.timedout) next();
+}
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
@@ -21,6 +27,8 @@ app.set("view engine", "handlebars");
 var routes = require("./controllers/burgers_controller.js");
 
 app.use(routes);
+
+var PORT = process.env.PORT || 3000;
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
