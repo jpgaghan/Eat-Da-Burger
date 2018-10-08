@@ -2,7 +2,7 @@
   "name": "Eat-Da-Burger",
   "version": "1.0.0",
   "description": "Node Express Handlebars",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -10,6 +10,10 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jpgaghan/Eat-Da-Burger.git"
+  },
+  "engines":{
+    "node": "v8.12.0",
+    "npm": "6.4.1"
   },
   "keywords": [],
   "author": "",
